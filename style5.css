@@ -523,7 +523,7 @@ body {
   position: absolute;
   bottom: 400px;
   left: 50%;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
   padding: 4px;
   border-radius: 2px;
   background-color: yellow;
@@ -557,8 +557,6 @@ body {
 .test__textarea-block {
   flex-grow: 1;
   padding: 10px 12px;
-
- 
 }
 
 .test__textarea-block textarea {

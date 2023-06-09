@@ -67,12 +67,16 @@ const heightEl = document.querySelector('.test');
 // const fieldEl = document.querySelector('.test__field');
 const scrollItem = document.querySelector('.scroll-item');
 const fieldEl = document.querySelector('.test__textarea-block textarea');
-window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  scrollItem.textContent = scrollTop;
 
+const onScroll = (name) => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  scrollItem.textContent = `${name}: ${scrollTop}`;
   if (scrollTop > 20) window.scrollTo({top: 0})
-});
+};
+
+window.addEventListener('scroll', () => onScroll('window'));
+document.body.addEventListener('scroll', () => onScroll('body'));
+document.documentElement.addEventListener('scroll', () => onScroll('html'));
 
 fieldEl.addEventListener('focus', () => setTimeout(() => window.scrollTo({top: -200}), 200));
 
