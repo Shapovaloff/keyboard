@@ -70,19 +70,13 @@ const fieldEl = document.querySelector('.test__textarea-block textarea');
 window.addEventListener('scroll', () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   scrollItem.textContent = scrollTop;
-  // window.scrollTo({top: 0})
+
+  if (scrollTop > 50) {
+    window.scrollTo({top: 0})
+  }
 });
 
-const preventTouch = (evt) => {
-  if (!evt.targetTouches[0].target.closest('.test__textarea-block textarea')) {
-    evt.preventDefault();
-  }
-  evt.preventDefault();
-};
-// window.addEventListener('touchend', () => {window.scrollTo({top: 0})}, {passive: false});
-// window.addEventListener('touchmove', preventTouch, {passive: false});
-
-fieldEl.addEventListener('focus', () => setTimeout(() => window.scrollTo({top: 0}), 100))
+fieldEl.addEventListener('focus', () => setTimeout(() => window.scrollTo({top: 0}), 200))
 
 window.visualViewport.addEventListener('resize', () => {
   heightEl.style.height = `${window.visualViewport.height}px`;
@@ -103,8 +97,8 @@ window.visualViewport.addEventListener('resize', () => {
     // document.body.style.top = `-${window.visualViewport.height}px`;
     // document.body.style.pointerEvents = 'none';
     // heightEl.style.transform = `translateY(-200px)`;
-    document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
-  }, 500)
+    // document.documentElement.style.setProperty('--app-height', `${window.innerHeight}px`);
+  }, 200)
 
 
 
