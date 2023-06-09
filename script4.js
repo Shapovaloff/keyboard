@@ -71,12 +71,10 @@ window.addEventListener('scroll', () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
   scrollItem.textContent = scrollTop;
 
-  if (scrollTop > 20) {
-    window.scrollTo({top: 0})
-  }
+  if (scrollTop > 20) window.scrollTo({top: 0})
 });
 
-fieldEl.addEventListener('focus', () => setTimeout(() => window.scrollTo({top: 0}), 500))
+fieldEl.addEventListener('focus', () => setTimeout(() => window.scrollTo({top: -200}), 200));
 
 window.visualViewport.addEventListener('resize', () => {
   heightEl.style.height = `${window.visualViewport.height}px`;
